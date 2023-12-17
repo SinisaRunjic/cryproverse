@@ -20,7 +20,11 @@ function App() {
    </Div>
    <Title>Vite + React</Title>
    <div className="card">
-    <Button type="primary" onClick={() => setCount((count) => count + 1)}>
+    <Button
+     type="primary"
+     disabled
+     onClick={() => setCount((count) => count + 1)}
+    >
      count is {count}
     </Button>
     <Paragraph>
