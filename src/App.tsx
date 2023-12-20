@@ -1,41 +1,28 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import {
-  Button,
-  Div,
-  Header,
-  Loader,
-  Menu,
-  NavBar,
-  Paragraph,
-  Title,
-} from "components";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { Layout } from "antd";
-import { Content, Footer } from "antd/es/layout/layout";
+import { Routes, Route } from "react-router-dom";
+import { Header, NavBar } from "components";
+import { Content } from "antd/es/layout/layout";
+const { Footer } = Layout;
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <Layout>
-      <Header> idemo </Header>
-      <Router>
-        <Layout>
-          <NavBar />
-          <Content>
-            <Routes>
-              <Route path="/" element={<div>content</div>} />
-            </Routes>
-          </Content>
-        </Layout>
-
-        <Footer>ovo je napravio sinisa</Footer>
-      </Router>
-    </Layout>
-  );
-}
+const App: React.FC = () => {
+ return (
+  <Layout hasSider>
+   <NavBar />
+   <Layout>
+    <Header>Header</Header>
+    <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
+     <Routes>
+      <Route path="/" element={<div>Main page</div>} />
+      <Route path="/rs" element={<div>rs page</div>} />
+     </Routes>
+    </Content>
+    <Footer style={{ textAlign: "center" }}>
+     Ant Design ©2023 Created by Ant UED
+    </Footer>
+   </Layout>
+  </Layout>
+ );
+};
 
 export default App;
