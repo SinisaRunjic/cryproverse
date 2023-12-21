@@ -39,6 +39,7 @@ const menuItems: MenuProps["items"] = [
 const NavBar: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { pathname } = useLocation();
+
   return (
     <Sider
       className="navigation-bar"
