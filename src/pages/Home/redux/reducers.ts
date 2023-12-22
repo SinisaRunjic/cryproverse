@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { IInitialState } from './types'
-import { getData } from 'mockData'
+import { getData } from 'app/api'
 
 const initialState: IInitialState = {
   data: {
@@ -14,10 +14,9 @@ const initialState: IInitialState = {
   loadingAllCoins: false
 }
 
-export const fetchAllCoins = createAsyncThunk("user/getUser", async () => {
-  const res = await getData(`https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0`)
-  const jsonData = await res.json()
-  return (jsonData.data.stats)
+export const getAllCoins = createAsyncThunk("coins/getAllCoins", async () => {
+  const res = await getData()
+  return (res.data.data.stats)
 })
 
 
@@ -28,10 +27,10 @@ const coinsSlice = createSlice({
     reset: () => initialState
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchAllCoins.pending, (state) => {
+    builder.addCase(getAllCoins.pending, (state) => {
       state.loadingAllCoins = true
     })
-    builder.addCase(fetchAllCoins.fulfilled, (state, action) => {
+    builder.addCase(getAllCoins.fulfilled, (state, action) => {
       state.data = action.payload
       state.loadingAllCoins = false
     })
