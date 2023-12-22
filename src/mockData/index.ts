@@ -79,3 +79,14 @@ export const optionsOneCoin = {
     "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
   },
 };
+
+export const getData = (url: string) => {
+
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '383866dd88msh86f91edde5292a6p155e41jsn3a89e4276eb6',
+      'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+    }
+  })
+}
