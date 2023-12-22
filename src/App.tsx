@@ -1,47 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { Layout } from "antd";
+import { Routes, Route } from "react-router-dom";
+import { Header, NavBar } from "components";
+import { Content } from "antd/es/layout/layout";
+const { Footer } = Layout;
 import "./App.css";
-import { Button, Div, Loader, Menu, Paragraph, Title } from "components";
-import { Space } from "antd";
+import { Cryptocurrencies, Exchanges, Home, News, NotFound } from "pages";
 
-function App() {
- const [count, setCount] = useState(0);
-
- return (
-  <>
-   <Div>
-    <a href="https://vitejs.dev" target="_blank">
-     <img src={viteLogo} className="logo" alt="Vite logo" />
-    </a>
-    <a href="https://react.dev" target="_blank">
-     <img src={reactLogo} className="logo react" alt="React logo" />
-    </a>
-   </Div>
-   <Title>Vite + React</Title>
-   <div className="card">
-    <Button
-     type="primary"
-     disabled
-     onClick={() => setCount((count) => count + 1)}
-    >
-     count is {count}
-    </Button>
-    <Paragraph>
-     Edit <code>src/App.tsx</code> and save to test HMR opetn kei tek
-    </Paragraph>
-   </div>
-   <Paragraph className="read-the-docs">
-    Click on the Vite and React logos to learn more
-   </Paragraph>
-   <Space>
-    <Menu />
-    <Loader>
-     <p>idemo</p>
-    </Loader>
-   </Space>
-  </>
- );
-}
+const App: React.FC = () => {
+  return (
+    <Layout hasSider>
+      <NavBar />
+      <Layout>
+        <Header>Header</Header>
+        <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+            <Route path="/exchanges" element={<Exchanges />} />
+            <Route path="/news" element={<News />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Content>
+        <Footer style={{ textAlign: "center" }}>
+          Ant Design ©2023 Created by Ant UED
+        </Footer>
+      </Layout>
+    </Layout>
+  );
+};
 
 export default App;
