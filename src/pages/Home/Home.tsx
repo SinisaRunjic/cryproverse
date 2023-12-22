@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import millify from "millify";
 import { Row, Col, Statistic } from "antd";
 import { useAppDispatch, useAppSelector } from "app/hooks";
-import { fetchAllCoins, reset } from "./redux/reducers";
+import { getAllCoins, reset } from "./redux/reducers";
 import { Loader } from "components";
 
 const Home: FC = () => {
@@ -11,7 +11,7 @@ const Home: FC = () => {
     (state) => state.coins
   );
   useEffect(() => {
-    dispatch(fetchAllCoins());
+    dispatch(getAllCoins());
 
     return () => {
       dispatch(reset());
