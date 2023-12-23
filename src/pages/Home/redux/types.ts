@@ -7,5 +7,5 @@ export interface IInitialState {
     totalMarketCap: string;
     totalMarkets: number;
   };
-  loadingAllCoins: boolean;
+  loadingStats: boolean;
 }
