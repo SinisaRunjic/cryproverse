@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 // reducers
 import statsReducer from "pages/Home/redux/reducers";
 import coinsReducer from "pages/Cryptocurrencies/redux/reducers";
+import coinReducer from "pages/CryptoDetails/redux/reducers";
 // application state itnterfaces
 
 const store = configureStore({
  reducer: {
   stats: statsReducer,
   coins: coinsReducer,
+  coin: coinReducer,
  },
 });
 export default store;

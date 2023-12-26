@@ -5,4 +5,5 @@ export interface ICryptoCard extends CardProps {
  marketCap: string;
  change: string;
  iconUrl: string;
+ uuid: string;
 }

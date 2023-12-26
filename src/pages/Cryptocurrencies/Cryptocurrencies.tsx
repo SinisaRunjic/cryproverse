@@ -28,6 +28,7 @@ const Cryptocurrencies: FC = () => {
        price={millify(Number(coin.price))}
        marketCap={millify(Number(coin.marketCap))}
        change={millify(Number(coin.change))}
+       uuid={coin.uuid}
       />
      </Col>
     ))}

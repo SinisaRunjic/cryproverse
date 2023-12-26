@@ -2,6 +2,7 @@ import { Card } from "antd";
 import { FC } from "react";
 import { ICryptoCard } from "./interface";
 import "./CryptoCard.css";
+import { Link } from "react-router-dom";
 
 const CryptoCard: FC<ICryptoCard> = ({
  title,
@@ -9,6 +10,7 @@ const CryptoCard: FC<ICryptoCard> = ({
  marketCap,
  change,
  iconUrl,
+ uuid,
 }) => {
  return (
   <Card
@@ -16,9 +18,11 @@ const CryptoCard: FC<ICryptoCard> = ({
    hoverable
    extra={<img className="crypto-image" src={iconUrl} />}
   >
-   <p>Price: {price}</p>
-   <p>Market cap: {marketCap}</p>
-   <p>Daily change: {change}</p>
+   <Link to={`/cryptocurrencies/${uuid}`}>
+    <p>Price: {price}</p>
+    <p>Market cap: {marketCap}</p>
+    <p>Daily change: {change}</p>
+   </Link>
   </Card>
  );
 };
